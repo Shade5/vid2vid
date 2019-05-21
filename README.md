@@ -62,7 +62,7 @@ If you have difficulty building the repo, a docker image can be found in the `do
 
 ### Testing 
 - Please first download example dataset by running `python scripts/download_datasets.py`.
-- Next, download and compile a snapshot of [FlowNet2](https://github.com/NVIDIA/flownet2-pytorch) by running `python scripts/download_flownet2.py`.
+- Next, go to `models/flownet2_pytorch/` and run `bash install.sh`.
 - Cityscapes    
   - Please download the pre-trained Cityscapes model by:
     ```bash
