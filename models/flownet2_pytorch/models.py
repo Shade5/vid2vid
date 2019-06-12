@@ -16,14 +16,24 @@ from .networks import FlowNetFusion
 from .networks.submodules import *
 'Parameter count = 162,518,834'
 
+
+class MyDict(dict):
+    pass
+
+
 class FlowNet2(nn.Module):
 
-    def __init__(self, args, batchNorm=False, div_flow = 20.):
-        super(FlowNet2,self).__init__()
+    def __init__(self, args=None, batchNorm=False, div_flow = 20.):
+        super(FlowNet2, self).__init__()
         self.batchNorm = batchNorm
         self.div_flow = div_flow
+
+        if args is None:
+            args = MyDict()
+            args.rgb_max = 1
+            args.fp16 = False
+            args.grads = {}
         self.rgb_max = args.rgb_max
-        self.args = args
 
         self.channelnorm = ChannelNorm()
 
